@@ -16,6 +16,11 @@
     "express-session": "^1.7.6",
     "mongoose": "latest",
     "morgan": "~1.0.0",
+    "run-sequence": "latest",
+    "gulp":"latest",
+    "browser-sync":"latest",
+    "gulp-watch":"latest",
+    "rimraf":"latest",
     "parameterize": "0.0.7",
     "static-favicon": "~1.0.0"
   }

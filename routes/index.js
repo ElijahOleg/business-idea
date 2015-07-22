@@ -12,7 +12,7 @@ db.once('open', function() {
   // Create your schemas and models here.
 });
 
-mongoose.connect(process.env.MONGOHQ_URL);
+mongoose.connect('mongodb://localhost/businessIdea');
 
 var ideaSchema = new mongoose.Schema({
   email: String,
@@ -41,7 +41,7 @@ router.post('/hypothesis', function(req, res) {
     why: req.body.why,
     solution: req.body.solution,
     cost: req.body.cost,
-    code: ((new Date()).getTime()).toString() + "-" + titleCode
+    code: ((new Date()).getTime()).toString() + "_" + titleCode
   });
 
   idea.save(function(err, idea) {
@@ -61,7 +61,7 @@ router.get('/hypothesis/:code', function(req, res) {
       return console.error(err);
     }
     if (idea) {
-      res.render('idea', { idea: idea });
+      res.json(idea);
     } else {
       res.redirect('/?i');
     }
